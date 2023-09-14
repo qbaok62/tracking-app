@@ -12,7 +12,7 @@ const AppStack = () => {
   const {
     state: { token },
   } = React.useContext(AuthContext);
-  console.log("token: ", token);
+
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
@@ -20,16 +20,8 @@ const AppStack = () => {
     >
       {!token ? (
         <>
-          <Stack.Screen
-            name="Signup"
-            component={SignupScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Signin"
-            component={SigninScreen}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+          <Stack.Screen name="Signin" component={SigninScreen} />
         </>
       ) : (
         <Stack.Screen name="Home" component={HomeTab} />
