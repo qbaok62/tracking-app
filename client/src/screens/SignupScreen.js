@@ -1,12 +1,12 @@
-import React from "react";
+import { useContext, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import AuthFrom from "../components/AuthForm";
 import NavLink from "../components/NavLink";
-import { Context as AuthContext } from "../context/authContext";
+import { Context as AuthContext } from "../context/AuthContext";
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup, clearErrorMessage } = React.useContext(AuthContext);
-  React.useEffect(() => {
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
+  useEffect(() => {
     const unsubscribe = navigation.addListener("blur", clearErrorMessage);
     return unsubscribe;
   }, [navigation]);
